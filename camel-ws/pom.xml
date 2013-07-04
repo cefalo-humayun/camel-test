@@ -11,6 +11,29 @@
     <packaging>war</packaging>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jms</artifactId>
+            <!-- use the same version as your Camel core version -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-http</artifactId>
+            <!-- use the same version as your Camel core version -->
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -115,14 +138,14 @@
 
                     <!-- This sets up a development log4j configuration file. -->
                     <systemProperties>
-                        <systemProperty>
+                        <!--<systemProperty>
                             <name>log4j.configuration</name>
                             <value>file:///${project.basedir}/src/config/log4j_dev.properties</value>
                         </systemProperty>
                         <systemProperty>
                             <name>mediator.dir</name>
                             <value>${basedir}/../mediator-dist/src/</value>
-                        </systemProperty>
+                        </systemProperty>-->
                     </systemProperties>
 
                     <webApp>

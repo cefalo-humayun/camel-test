@@ -21,15 +21,16 @@
         <slf4j.version>1.7.5</slf4j.version>
         <xom.version>1.2.5</xom.version>
         <jetty.version>8.1.10.v20130312</jetty.version>
+        <camel.version>2.11.0</camel.version>
     </properties>
 
 
     <dependencies>
         <!-- SLF4J -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Google Guava -->
         <dependency>
@@ -41,6 +42,33 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Apache Camel Dependency -->
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-core</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>5.5.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-jms</artifactId>
+                <version>${camel.version}</version>
+                <!-- use the same version as your Camel core version -->
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-http</artifactId>
+                <version>${camel.version}</version>
+                <!-- use the same version as your Camel core version -->
+            </dependency>
+
             <!-- Servlet related dependencies -->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -145,23 +173,29 @@
             </dependency>
 
             <!-- SLF4J dependencies -->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.version}</version>
                 <scope>runtime</scope>
-            </dependency>
+            </dependency>-->
 
-            <dependency>
+            <!--<dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-
+-->
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>1.2.12</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.5</version>
             </dependency>
 
             <!-- Google Guava depenedency -->
