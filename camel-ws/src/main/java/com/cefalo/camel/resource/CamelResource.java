@@ -1,8 +1,6 @@
 package com.cefalo.camel.resource;
 
 import com.cefalo.camel.processor.CommandProcessor;
-import nu.xom.Builder;
-import nu.xom.Document;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -17,7 +15,6 @@ import javax.jms.ConnectionFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.StringReader;
 
 /**
  * @author humayun
