@@ -28,8 +28,9 @@ public class CamelTest1 {
                                 message.setBody(body);
                                 message.setHeader("myHeaderName", "HumayunKabir");
                             }
-                        })
-                        .beanRef("myBean");
+                        })/*.convertBodyTo(String.class)*/
+                        //.bean(MyBean.class, "hello(${headers}, ${header.ETag}, ${body})");
+                        .bean(MyBean.class);
             }
         });
 

@@ -2,10 +2,7 @@ package com.cefalo.camel.resource;
 
 import com.cefalo.camel.processor.CommandProcessor;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
-import org.apache.camel.ProducerTemplate;
+import org.apache.camel.*;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -22,6 +19,10 @@ import javax.ws.rs.core.Response;
 @Path("notifications")
 public class CamelResource {
 
+    @EndpointInject(uri="direct:ab")
+    ProducerTemplate producer;
+
+
     @POST
     @Path("/np")
     @Consumes(MediaType.APPLICATION_XML)
@@ -31,7 +32,7 @@ public class CamelResource {
         System.out.println("we are here-\n" + commandText);
         boolean commandProcessed = true;
 
-        CamelContext camelContext = new DefaultCamelContext();
+        /*CamelContext camelContext = new DefaultCamelContext();
 
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("vm://localhost?broker.persistent=false");
         camelContext.addComponent("jms", JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
@@ -47,7 +48,7 @@ public class CamelResource {
                 from("jms:queue:command")
                         .process(new CommandProcessor())
 
-                        /*.log(body(String.class) + "hereHERE")*/
+                        *//*.log(body(String.class) + "hereHERE")*//*
 
                         .pipeline(simple("${body}").toString(), "jms:queue:assignment");
             }
@@ -73,8 +74,9 @@ public class CamelResource {
 
         camelContext.start();
         Thread.sleep(10000);
-        camelContext.stop();
+        camelContext.stop();*/
 
+        producer.sendBody(commandText);
         return Response.status(commandProcessed ? HttpStatus.SC_OK : HttpStatus.SC_ACCEPTED).build();
     }
 
