@@ -1,6 +1,5 @@
-package com.cefalo.guice;
+package com.cefalo.camel.route;
 
-import com.google.inject.Inject;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
@@ -8,7 +7,7 @@ import org.apache.camel.builder.RouteBuilder;
 /**
  * @author Humayun
  */
-public class MyRouteBuilder extends RouteBuilder {
+public class AnotherRoute extends RouteBuilder {
 
     public void configure() {
         /*// populate the message queue with some messages
@@ -18,16 +17,13 @@ public class MyRouteBuilder extends RouteBuilder {
 
         // set up a listener on the file component
         from("file://target/routeOutput?noop=true").beanRef("myBean");*/
-        from("direct:ab")
+        from("direct:cd")
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
                         System.err.println("In Process : - " + exchange.getIn().getBody(String.class));
                     }
                 })
-                .to("file:/home/sky/Desktop/camel/data/");
-
-        from("http://192.168.1.144:8080/webservice/assignments/3181?authMethod=Basic&authUsername=cefalo&authPassword=cefalo")
                 .to("file:/home/sky/Desktop/camel/data/");
     }
 

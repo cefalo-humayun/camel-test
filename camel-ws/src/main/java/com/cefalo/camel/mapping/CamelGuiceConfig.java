@@ -4,6 +4,8 @@ import com.cefalo.camel.resource.CamelResource;
 import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 import com.sun.jersey.spi.container.servlet.ServletContainer;
+import org.apache.camel.CamelContext;
+import org.apache.camel.impl.DefaultCamelContext;
 
 import java.util.HashMap;
 import java.util.Map;

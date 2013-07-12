@@ -19,7 +19,9 @@
             a single dependency on something, we can use it directly. -->
         <apache.jersey.version>1.17.1</apache.jersey.version>
         <google.guice.version>3.0</google.guice.version>
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j-api-version>1.6.6</slf4j-api-version>
+        <slf4j-version>1.7.5</slf4j-version>
+        <log4j-version>1.2.17</log4j-version>
         <xom.version>1.2.5</xom.version>
         <jetty.version>8.1.10.v20130312</jetty.version>
         <camel.version>2.11.0</camel.version>
@@ -187,16 +189,27 @@
                 <version>${slf4j.version}</version>
             </dependency>
 -->
+            <!-- logging -->
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>1.2.12</version>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api-version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.5</version>
+                <version>${slf4j-version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.camel</groupId>
+                        <artifactId>camel-guice</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j-version}</version>
             </dependency>
 
             <!-- Google Guava depenedency -->
