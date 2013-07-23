@@ -11,6 +11,8 @@
     <modules>
         <module>camel-ws</module>
         <module>camel-test-example</module>
+        <module>camel-module-jetty</module>
+        <module>mediator-camel</module>
     </modules>
 
 

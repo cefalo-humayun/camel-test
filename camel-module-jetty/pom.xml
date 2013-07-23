@@ -9,32 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>camel-test-example</artifactId>
+    <artifactId>camel-module-jetty</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-restlet</artifactId>
-            <version>2.11.0</version>
-            <!-- use the same version as your Camel core version -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-core</artifactId>
-            <version>2.11.0</version>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-http</artifactId>
         </dependency>
 
         <dependency>
@@ -45,25 +25,14 @@
 
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-guice</artifactId>
+            <artifactId>camel-http</artifactId>
             <version>2.11.0</version>
-            <!-- use the same version as your Camel core version -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-http</artifactId>
-            <version>8.0.0.RC0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-jms</artifactId>
+            <artifactId>camel-http4</artifactId>
+            <version>2.11.0</version>
         </dependency>
 
         <dependency>
@@ -76,9 +45,11 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
 
+        <!-- xml parser dependency -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>xom</groupId>
+            <artifactId>xom</artifactId>
+            <version>1.2.5</version>
         </dependency>
     </dependencies>
 
